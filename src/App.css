@@ -3,6 +3,11 @@
   background-color: lightblue;
 }
 
+.Alert {
+  text-align: center;
+  background-color: lightcoral;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
