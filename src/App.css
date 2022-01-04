@@ -1,11 +1,14 @@
 .App {
   text-align: center;
-  background-color: lightblue;
 }
 
-.Alert {
-  text-align: center;
-  background-color: lightcoral;
+.Welcome {
+  font-size: large;
+  font-weight: bold;
+}
+
+.First {
+  font-size: small;
 }
 
 .App-logo {
