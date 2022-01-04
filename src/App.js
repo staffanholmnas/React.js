@@ -1,13 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 
-function App() {
+function MyComponent() {
+  const [firstName, setFirstName] = useState('John');
+  const [message, setMessage] = useState('Hello')
+  return(
+    <div>
+      {message} {firstName}
+    </div>
+  )
+}
+
+function App(props) {
   return (
     <div className='App'>
-      <h1 className='Welcome'>Welcome to my site</h1> 
-      <p className='First'>This is my first React app</p>
+      Hello World {props.firstname} {props.lastname}
     </div>
   );
 }
 
-export default App;
+export default MyComponent;
