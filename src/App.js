@@ -7,7 +7,6 @@ function MyComponent() {
   const [person, setPerson] = useState({firstName: 'Ben', lastName: 'Kenobi', age: 50});
   const [count, setCount] = useState(30);
   
-  
   return(
     
     <div>
@@ -24,7 +23,6 @@ function MyComponent() {
           Grow older!
         </button>
       </div>
-
   )
 }
 
