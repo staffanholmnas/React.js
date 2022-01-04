@@ -4,10 +4,20 @@ import './App.css';
 function MyComponent() {
   const [firstName, setFirstName] = useState('John');
   const [message, setMessage] = useState('Hello')
+  const [person, setPerson] = useState({firstName: 'Ben', lastName: 'Kenobi', age: 50});
+  
+  
   return(
+    
     <div>
       {message} {firstName}
-    </div>
+      <p>{person.firstName} {person.lastName} {person.age}</p>
+        <button onClick={()=> (setPerson({firstName: 'Luke', lastName: 'Skywalker', age: 30}),
+          setFirstName('Anakin'))}>
+          Use the force!
+        </button>
+      </div>
+
   )
 }
 
