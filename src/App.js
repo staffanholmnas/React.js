@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 
-function MyComponent() {
+function StateApp() {
   const [firstName, setFirstName] = useState('John');
   const [message, setMessage] = useState('Hello')
   const [person, setPerson] = useState({firstName: 'Ben', lastName: 'Kenobi', age: 50});
@@ -26,7 +26,7 @@ function MyComponent() {
   )
 }
 
-function App(props) {
+function PropsApp(props) {
   return (
     <div className='App'>
       Hello World {props.firstname} {props.lastname}
@@ -34,7 +34,7 @@ function App(props) {
   );
 }
 
-function App2() {
+function CountApp() {
   const [count, setCount] = useState(0);
   
   return (
@@ -78,4 +78,37 @@ function FormApp() {
   </div>
   );
 }
-export default MyComponent;
+
+function TodoApp() {
+  const [todo, setTodo] = useState({description: '', date: ''});
+  const [todos, setTodos] = useState([]);
+
+  const inputChanged = (event) => {
+    setTodo({...todo, [event.target.name]: event.target.value});
+  }
+
+  const addTodo = () => {
+    setTodos([...todos, todo]);
+    setTodo({description: '', date: ''});
+  }
+
+  return (
+    <div className="App">
+      <input placeholder="Description" name="description" value={todo.description} onChange={inputChanged} />
+      <input placeholder="Date" name="date" value={todo.date} onChange={inputChanged} />
+      <button onClick={addTodo}>Add</button>
+      <table style={{margin: 'auto'}}>
+        <tbody style={{textAlign: 'left'}}>
+          { 
+            todos.map((todo, index) =>
+            <tr key={index}>
+              <td>{todo.description}</td>
+              <td>{todo.date}</td>
+            </tr>) 
+          }
+        </tbody>
+      </table>
+    </div>
+  );
+}
+export default TodoApp;
