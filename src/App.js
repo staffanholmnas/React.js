@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 
-function App() {
+function NasaApp() {
   const [explanation, setExplanation] = useState('');
   const [url, setUrl] = useState('');
   const [isReady, setReady] = useState(false);
@@ -28,4 +28,33 @@ function App() {
   );
 }
 
-export default App;
+function UsersApp() {
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    fetch('https://reqres.in/api/users')
+    .then(response => response.json())
+    .then(resData => setUsers(resData.data))
+  }, []);
+
+  return (
+    <div className="App">
+      <table>
+        <tbody>
+        {
+          users.map((user, index) => 
+           <tr key={index}>
+             <td>{user.first_name}</td>
+             <td>{user.last_name}</td>
+             <td>{user.email}</td>
+             <td><p><img src={user.avatar}></img></p></td>
+           </tr>)
+        }
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+
+export default UsersApp;
