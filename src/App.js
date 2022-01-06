@@ -47,7 +47,7 @@ function UsersApp() {
              <td>{user.first_name}</td>
              <td>{user.last_name}</td>
              <td>{user.email}</td>
-             <td><p><img src={user.avatar}></img></p></td>
+             <td><p><img src={user.avatar} alt='user avatar'></img></p></td>
            </tr>)
         }
         </tbody>
