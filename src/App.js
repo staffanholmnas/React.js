@@ -85,4 +85,26 @@ function UserApp() {
   );
 }
 
+function TriviaApp() {
+  const [trivia, setTrivia] = useState({});
+  
+  const fetchData = () => {
+    fetch('https://opentdb.com/api.php?amount=1')
+    .then(response => {
+      if (response.status !== 200) {
+        throw new Error('Response status not ok');
+      }
+      return response.json();
+    })
+    .then(data => setTrivia(data.results[0]))
+  };
+
+  return (
+    <div className="App">
+      <p>{trivia.question}</p>
+      <button onClick={fetchData}>New question</button>
+    </div>
+  );
+}
+
 export default UsersApp;
