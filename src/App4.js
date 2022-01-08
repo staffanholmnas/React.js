@@ -1,17 +1,33 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 
-function GitHubApp() {
+function App() {
   const [repos, setRepos] = useState([]);
+  const [reponame, setReponame] = useState('')
 
-  useEffect(() => {
-    fetch('https://api.github.com/search/repositories?q=react')
-    .then(response => response.json())
-    .then(resData => setRepos(resData.items))
-  }, []);
+  const searchRepo = () => {
+    fetch('https://api.github.com/search/repositories?q=' + reponame)
+    .then(response => {
+      if (response.status !== 200) {
+        throw new Error('Response status not ok');
+      }
+
+      return response.json();
+    })
+    .then(resData => {
+      setRepos(resData.items);
+    })
+  };
+
+  const inputChanged = (event) => {
+    setReponame(event.target.value);
+  }
 
   return (
     <div className="App">
+      <h3>Repositories</h3>
+      <input placeholder="repo name" value={reponame} onChange={inputChanged}/>
+      <button onClick={searchRepo}>Search</button>
       <table>
         <thead>
           <tr>
@@ -30,8 +46,8 @@ function GitHubApp() {
         }
         </tbody>
       </table>
-     </div>
+    </div>
   );
 }
 
-export default GitHubApp;
+export default App;

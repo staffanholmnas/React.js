@@ -30,8 +30,7 @@ function App() {
         <ReactiveButton onClick={addTodo} idleText='Add' rounded='true' size='small' outline='true'></ReactiveButton>
       </p>
       <div className="ag-theme-material" style={{ height: 600, width: 600, margin: 'auto' }}>
-        <AgGridReact
-           rowData={todos}>
+        <AgGridReact rowData={todos} animateRows = {true}>
           <AgGridColumn field="description" sortable={true} filter={true}></AgGridColumn>
           <AgGridColumn field="date" sortable={true} filter={true}></AgGridColumn>
           <AgGridColumn field="status" sortable={true} filter={true}></AgGridColumn>
