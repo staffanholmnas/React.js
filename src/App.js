@@ -1,50 +1,76 @@
-import React from 'react'
+import React, { useState } from 'react';
 import './App.css';
-import Home from './components/Home';
-import About from './components/About';
-import Contact from './components/Contact';
-import Keyboards from './components/Keyboards';
-import Computers from './components/Computers';
-import Warranty from './components/Warranty';
-import NotFound from './components/NotFound';
-import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, Navbar, Nav, NavDropdown } from 'react-bootstrap';
+import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import { Delete, Save } from '@mui/icons-material';
+import TextField from '@mui/material/TextField';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Tooltip from '@mui/material/Tooltip';
 
-// An app using React Bootstrap and the NavBar as well as react router for navigiation.
+
+// A todo app that uses MUI a.k.a material UI
 function App() {
+  const [todo, setTodo] = useState({description: '', date: ''});
+  const [todos, setTodos] = useState([]);
+
+  const inputChanged = (event) => {
+    setTodo({...todo, [event.target.name]: event.target.value});
+  }
+
+  const addTodo = () => {
+    setTodos([...todos, todo]);
+    setTodo({description: '', date: ''});
+  }
+
+  const deleteTodo = (row) => {
+    setTodos(todos.filter((todo, index) => index !== row));
+  }
+
   return (
     <div className="App">
-      <BrowserRouter>
-        <Navbar bg="light" expand="lg">
-          <Container>
-            <Navbar.Brand as={Link} to={"/"}>My Bootstrap React app</Navbar.Brand>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav">
-              <Nav className="me-auto">
-                <Nav.Link as={Link} to={"/"}>Home</Nav.Link>
-                <Nav.Link as={Link} to={"/about"}>About</Nav.Link>
-                <Nav.Link as={Link} to={"/contact"}>Contact</Nav.Link>
-                <NavDropdown title="Products" id="basic-nav-dropdown">
-                  <NavDropdown.Item as={Link} to={"/products/computers"}>Computers</NavDropdown.Item>
-                  <NavDropdown.Item as={Link} to={"/products/keyboards"}>Keyboards</NavDropdown.Item>
-                  <NavDropdown.Divider />
-                  <NavDropdown.Item as={Link} to={"/products/warranty"}>Warranty</NavDropdown.Item>
-                </NavDropdown>
-              </Nav>
-            </Navbar.Collapse>
-          </Container>
-        </Navbar>
-        <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/contact" component={Contact} />
-            <Route path="/about" component={About} />
-            <Route path="/products/keyboards" component={Keyboards} />
-            <Route path="/products/computers" component={Computers} />
-            <Route path="/products/warranty" component={Warranty} />
-            <Route path="*" component={NotFound} />
-          </Switch>
-      </BrowserRouter>
+      <AppBar position="static">
+        <Toolbar>
+          <Typography variant="h6">
+            Todolist
+          </Typography>
+        </Toolbar>
+      </AppBar>
+      <p></p>
+      <TextField 
+        style={{marginRight: 10}} 
+        label="Description" 
+        name="description" 
+        variant="outlined"
+        value={todo.description} 
+        onChange={inputChanged} 
+      />
+     <TextField 
+       style={{marginRight: 10}} 
+       label="Date" 
+       name="date" 
+       variant="outlined"
+       value={todo.date} 
+       onChange={inputChanged}
+      />
+      <Button style= {{margin: 10}} color="primary" variant="contained" size="small" onClick={addTodo}><Save style= {{margin: 5}}/>Add</Button>
+      <table>
+        <tbody>
+       {
+          todos.map((todo, index) => 
+            <tr key={index}>
+              <td>{todo.description}</td>
+             <td>{todo.date}</td>
+             <td><Tooltip title="Delete">
+               <IconButton variant="contained" size="small" color="error" onClick={() => deleteTodo(index)}><Delete />
+               </IconButton>
+               </Tooltip>
+            </td>
+            </tr>)
+        }
+        </tbody>
+      </table>
     </div>
   );
 }
