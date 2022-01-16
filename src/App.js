@@ -1,76 +1,48 @@
-import React, { useState } from 'react';
+import React from 'react'
 import './App.css';
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import { Delete, Save } from '@mui/icons-material';
-import TextField from '@mui/material/TextField';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Tooltip from '@mui/material/Tooltip';
+import Home from './components/Home';
+import About from './components/About';
+import Keyboards from './components/Keyboards';
+import Nasa from './components/Nasa';
+import Warranty from './components/Warranty';
+import NotFound from './components/NotFound';
+import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Container, Navbar, Nav, NavDropdown } from 'react-bootstrap';
 
-
-// A todo app that uses MUI a.k.a material UI
+// An app using React Bootstrap and the NavBar as well as react router for navigiation.
 function App() {
-  const [todo, setTodo] = useState({description: '', date: ''});
-  const [todos, setTodos] = useState([]);
-
-  const inputChanged = (event) => {
-    setTodo({...todo, [event.target.name]: event.target.value});
-  }
-
-  const addTodo = () => {
-    setTodos([...todos, todo]);
-    setTodo({description: '', date: ''});
-  }
-
-  const deleteTodo = (row) => {
-    setTodos(todos.filter((todo, index) => index !== row));
-  }
-
   return (
     <div className="App">
-      <AppBar position="static">
-        <Toolbar>
-          <Typography variant="h6">
-            Todolist
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      <p></p>
-      <TextField 
-        style={{marginRight: 10}} 
-        label="Description" 
-        name="description" 
-        variant="outlined"
-        value={todo.description} 
-        onChange={inputChanged} 
-      />
-     <TextField 
-       style={{marginRight: 10}} 
-       label="Date" 
-       name="date" 
-       variant="outlined"
-       value={todo.date} 
-       onChange={inputChanged}
-      />
-      <Button style= {{margin: 10}} color="primary" variant="contained" size="small" onClick={addTodo}><Save style= {{margin: 5}}/>Add</Button>
-      <table>
-        <tbody>
-       {
-          todos.map((todo, index) => 
-            <tr key={index}>
-              <td>{todo.description}</td>
-             <td>{todo.date}</td>
-             <td><Tooltip title="Delete">
-               <IconButton variant="contained" size="small" color="error" onClick={() => deleteTodo(index)}><Delete />
-               </IconButton>
-               </Tooltip>
-            </td>
-            </tr>)
-        }
-        </tbody>
-      </table>
+      <BrowserRouter>
+        <Navbar bg="light" expand="lg">
+          <Container>
+            <Navbar.Brand as={Link} to={"/"}>My React apps</Navbar.Brand>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav">
+              <Nav className="me-auto">
+                <Nav.Link as={Link} to={"/"}>Home</Nav.Link>
+                <Nav.Link as={Link} to={"/about"}>About</Nav.Link>
+                
+                <NavDropdown title="Examples" id="basic-nav-dropdown">
+                  <NavDropdown.Item as={Link} to={"/examples/nasa"}>Nasa</NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to={"/examples/keyboards"}>Keyboards</NavDropdown.Item>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item as={Link} to={"/examples/warranty"}>Warranty</NavDropdown.Item>
+                </NavDropdown>
+              </Nav>
+            </Navbar.Collapse>
+          </Container>
+        </Navbar>
+        <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/about" component={About} />
+            <Route path="/examples/nasa" component={Nasa} />
+            <Route path="/examples/keyboards" component={Keyboards} />
+            <Route path="/examples/warranty" component={Warranty} />
+            <Route path="*" component={NotFound} />
+          </Switch>
+      </BrowserRouter>
     </div>
   );
 }

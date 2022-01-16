@@ -4,7 +4,7 @@ function Home() {
   return( 
     <div>
       <br></br>
-      <h4>Welcome to my homepage</h4>
+      <h4>This is a collection of apps made with React, enjoy!</h4>
     </div>
   )
 }
