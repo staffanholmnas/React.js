@@ -1,4 +1,7 @@
 import React, { useState, useEffect} from 'react';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
 
 function Nasa() {
   const [explanation, setExplanation] = useState('');
@@ -17,10 +20,18 @@ function Nasa() {
   },[])
 
   if (!isReady)
-    return <div>Loading...</div>
+    return <div><br></br><br></br>Loading...</div>
 
   return (
     <div className="App">
+      <AppBar position="static">
+        <Toolbar>
+          <Typography variant="h6">
+            Nasa
+          </Typography>
+        </Toolbar>
+      </AppBar>
+      <p></p>
       <br></br>
       <h4>Nasa's picture of the day</h4>
       <p>{explanation}</p>

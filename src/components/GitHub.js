@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
-import ReactiveButton from 'reactive-button';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
 
 function GitHub() {
   const [repos, setRepos] = useState([]);
@@ -26,11 +29,19 @@ function GitHub() {
 
   return (
     <div className="App">
+      <AppBar position="static">
+        <Toolbar>
+          <Typography variant="h6">
+            GitHub repos
+          </Typography>
+        </Toolbar>
+      </AppBar>
+      <p></p>
       <br></br>
       <h4>Search for repositories on GitHub</h4>
       <input placeholder="repo name" value={reponame} onChange={inputChanged} />
       <p></p>
-      <div><p><ReactiveButton onClick={searchRepo} idleText='Search' size='big'></ReactiveButton></p></div>
+      <div><Button style= {{margin: 10}} color="primary" variant="contained" size="small" onClick={searchRepo}>Search</Button></div>
       <table>
         <thead>
           <tr>

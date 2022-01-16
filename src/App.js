@@ -5,7 +5,7 @@ import About from './components/About';
 import GitHub from './components/GitHub';
 import Nasa from './components/Nasa';
 import Trivia from './components/Trivia';
-import Warranty from './components/Warranty';
+import Todo from './components/Todo';
 import NotFound from './components/NotFound';
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -24,12 +24,12 @@ function App() {
               <Nav className="me-auto">
                 <Nav.Link as={Link} to={"/"}>Home</Nav.Link>
                 <Nav.Link as={Link} to={"/about"}>About</Nav.Link>
-                <NavDropdown title="Examples" id="basic-nav-dropdown">
-                  <NavDropdown.Item as={Link} to={"/examples/nasa"}>Nasa</NavDropdown.Item>
-                  <NavDropdown.Item as={Link} to={"/examples/github"}>GitHub</NavDropdown.Item>
-                  <NavDropdown.Item as={Link} to={"/examples/trivia"}>Trivia</NavDropdown.Item>
+                <NavDropdown title="Apps" id="basic-nav-dropdown">
+                  <NavDropdown.Item as={Link} to={"/apps/nasa"}>Nasa</NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to={"/apps/github"}>GitHub</NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to={"/apps/trivia"}>Trivia</NavDropdown.Item>
                   <NavDropdown.Divider />
-                  <NavDropdown.Item as={Link} to={"/examples/warranty"}>Warranty</NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to={"/apps/todo"}>Todo</NavDropdown.Item>
                 </NavDropdown>
               </Nav>
             </Navbar.Collapse>
@@ -38,10 +38,10 @@ function App() {
         <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/about" component={About} />
-            <Route path="/examples/nasa" component={Nasa} />
-            <Route path="/examples/github" component={GitHub} />
-            <Route path="/examples/trivia" component={Trivia} />
-            <Route path="/examples/warranty" component={Warranty} />
+            <Route path="/apps/nasa" component={Nasa} />
+            <Route path="/apps/github" component={GitHub} />
+            <Route path="/apps/trivia" component={Trivia} />
+            <Route path="/apps/todo" component={Todo} />
             <Route path="*" component={NotFound} />
           </Switch>
       </BrowserRouter>

@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
-import ReactiveButton from 'reactive-button';
+import Button from '@mui/material/Button';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
 
 function Trivia() {
   const [trivia, setTrivia] = useState({});
@@ -40,12 +43,20 @@ function Trivia() {
 
   return (
     <div className="App">
+      <AppBar position="static">
+        <Toolbar>
+          <Typography variant="h6">
+            Trivia
+          </Typography>
+        </Toolbar>
+      </AppBar>
+      <p></p>
       <br></br>
       <h4>Random trivia!</h4>
-      <p><ReactiveButton onClick={handleClick} idleText='Get question' size='big'></ReactiveButton></p>
+      <div><Button style= {{margin: 10}} color="primary" variant="contained" size="small" onClick={handleClick}>Get question</Button></div>
       <p>{question}</p>
       <br></br>
-      <p><ReactiveButton onClick={showAnswer} idleText='Show answer' size='big'></ReactiveButton></p>
+      <div><Button style= {{margin: 10}} color="primary" variant="contained" size="small" onClick={showAnswer}>Show answer</Button></div>
       <p>{answer}</p>
     </div>
   );

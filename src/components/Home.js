@@ -1,10 +1,13 @@
 import React from 'react';
+import Typography from '@mui/material/Typography';
 
 function Home() {
-  return( 
+  return (
     <div>
       <br></br>
-      <h4>This is a collection of apps made with React, enjoy!</h4>
+      <Typography variant="h6">
+        This is a collection of apps made with React, enjoy!
+      </Typography>
     </div>
   )
 }
