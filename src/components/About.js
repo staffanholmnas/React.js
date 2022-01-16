@@ -7,6 +7,8 @@ function About() {
       <h4>This site is a concoction of the following technologies:</h4>
       <p>-Bootstrap</p>
       <p>-React Router</p>
+      <p>-Reactive Button</p>
+      <p>-Navbar</p>
       <p>-MUI</p>
       <p>-RESTful methods</p>
       <p>-AG-Grid</p>

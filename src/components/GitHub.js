@@ -24,9 +24,6 @@ function GitHub() {
     setReponame(event.target.value);
   }
 
-  if (repos === []) {
-    return <div className="App"></div>
-  }
   return (
     <div className="App">
       <br></br>
