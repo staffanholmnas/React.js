@@ -21,6 +21,8 @@ function Nasa() {
 
   return (
     <div className="App">
+      <br></br>
+      <h4>Nasa's picture of the day</h4>
       <p>{explanation}</p>
       <img alt="Nasa apod" src={url} />
     </div>

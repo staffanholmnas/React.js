@@ -2,8 +2,9 @@ import React from 'react'
 import './App.css';
 import Home from './components/Home';
 import About from './components/About';
-import Keyboards from './components/Keyboards';
+import GitHub from './components/GitHub';
 import Nasa from './components/Nasa';
+import Trivia from './components/Trivia';
 import Warranty from './components/Warranty';
 import NotFound from './components/NotFound';
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
@@ -23,10 +24,10 @@ function App() {
               <Nav className="me-auto">
                 <Nav.Link as={Link} to={"/"}>Home</Nav.Link>
                 <Nav.Link as={Link} to={"/about"}>About</Nav.Link>
-                
                 <NavDropdown title="Examples" id="basic-nav-dropdown">
                   <NavDropdown.Item as={Link} to={"/examples/nasa"}>Nasa</NavDropdown.Item>
-                  <NavDropdown.Item as={Link} to={"/examples/keyboards"}>Keyboards</NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to={"/examples/github"}>GitHub</NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to={"/examples/trivia"}>Trivia</NavDropdown.Item>
                   <NavDropdown.Divider />
                   <NavDropdown.Item as={Link} to={"/examples/warranty"}>Warranty</NavDropdown.Item>
                 </NavDropdown>
@@ -38,7 +39,8 @@ function App() {
             <Route exact path="/" component={Home} />
             <Route path="/about" component={About} />
             <Route path="/examples/nasa" component={Nasa} />
-            <Route path="/examples/keyboards" component={Keyboards} />
+            <Route path="/examples/github" component={GitHub} />
+            <Route path="/examples/trivia" component={Trivia} />
             <Route path="/examples/warranty" component={Warranty} />
             <Route path="*" component={NotFound} />
           </Switch>
