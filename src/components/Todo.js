@@ -37,7 +37,7 @@ function Todo() {
         </Toolbar>
       </AppBar>
       <p></p>
-      <TextField 
+<div><TextField 
         style={{marginRight: 10}} 
         label="Description" 
         name="description" 
@@ -53,6 +53,7 @@ function Todo() {
        value={todo.date} 
        onChange={inputChanged}
       />
+      </div>
       <Button style= {{margin: 10}} color="primary" variant="contained" size="small" onClick={addTodo}><Save style= {{margin: 5}}/>Add</Button>
       <table>
         <tbody>

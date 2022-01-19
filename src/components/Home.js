@@ -7,7 +7,7 @@ function Home() {
     <div>
       <br></br>
       <Typography variant="h6">
-        This is a collection of apps made with React, enjoy!
+        Browse apps from the navbar
         <p></p>
         <br></br>
         <div className='carousel'>
