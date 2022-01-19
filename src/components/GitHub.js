@@ -41,25 +41,27 @@ function GitHub() {
       <h4>Search for repositories on GitHub</h4>
       <input placeholder="repo name" value={reponame} onChange={inputChanged} />
       <p></p>
-      <div><Button style= {{margin: 10}} color="primary" variant="contained" size="small" onClick={searchRepo}>Search</Button></div>
-      <table>
-        <thead>
-          <tr>
-            <td>Name</td>
-            <td>URL</td>
-          </tr>
-        </thead>
-        <tbody>
-          {
-            repos.map((repo, index) =>
-              <tr key={index}>
-                <td>{repo.full_name}</td>
-                <td><a href={repo.html_url}>{repo.html_url}</a></td>
-              </tr>
-            )
-          }
-        </tbody>
-      </table>
+      <div><Button style={{ margin: 10 }} color="primary" variant="contained" size="small" onClick={searchRepo}>Search</Button></div>
+      <div className='repolist'>
+        <table>
+          <thead>
+            <tr>
+              <td>Name</td>
+              <td>URL</td>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              repos.map((repo, index) =>
+                <tr key={index}>
+                  <td>{repo.full_name}</td>
+                  <td><a href={repo.html_url}>{repo.html_url}</a></td>
+                </tr>
+              )
+            }
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }

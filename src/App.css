@@ -5,7 +5,14 @@
 table {
   margin: auto;
   text-align: left; 
-  width:20%;
+  table-layout:fixed;
+  
+}
+
+.repolist {
+  overflow-x:auto;
+  margin: auto;
+  width: 70%;
 }
 
 .nasatext {
