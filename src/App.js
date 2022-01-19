@@ -16,7 +16,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Navbar bg="light" expand="lg">
+        <Navbar bg="dark" expand="lg" variant='dark'>
           <Container>
             <Navbar.Brand as={Link} to={"/"}>My React apps</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />

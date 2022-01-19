@@ -42,7 +42,7 @@ function GitHub() {
       
       <TextField 
        style={{marginRight: 10}} 
-       label="Search repo name" 
+       label="Search repos" 
        name="date" 
        variant="outlined"
        value={reponame} 
