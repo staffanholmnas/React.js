@@ -3,6 +3,7 @@ import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 
 function GitHub() {
   const [repos, setRepos] = useState([]);
@@ -38,8 +39,15 @@ function GitHub() {
       </AppBar>
       <p></p>
       <br></br>
-      <h4>Search for repositories on GitHub</h4>
-      <input placeholder="repo name" value={reponame} onChange={inputChanged} />
+      
+      <TextField 
+       style={{marginRight: 10}} 
+       label="Search repo name" 
+       name="date" 
+       variant="outlined"
+       value={reponame} 
+       onChange={inputChanged}
+      />
       <p></p>
       <div><Button style={{ margin: 10 }} color="primary" variant="contained" size="small" onClick={searchRepo}>Search</Button></div>
       <div className='repolist'>
