@@ -5,5 +5,22 @@
 table {
   margin: auto;
   text-align: left; 
-  width:50%;
+  width:20%;
+}
+
+.nasatext {
+  margin: auto;
+  width: 65%;
+}
+
+.nasapic {
+  max-width: 70%;
+  height: auto;
+}
+
+.carousel {
+  max-width: 850px;
+  width: 90%;
+  height: auto;
+  margin: auto;
 }
