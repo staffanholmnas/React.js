@@ -11,7 +11,6 @@ function About() {
       <br></br>
       <p>-Bootstrap</p>
       <p>-React Router</p>
-      <p>-Navbar</p>
       <p>-MUI</p>
       <p>-RESTful methods</p>
       <p>-AG-Grid</p>
