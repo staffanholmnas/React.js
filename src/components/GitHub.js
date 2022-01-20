@@ -39,14 +39,14 @@ function GitHub() {
       </AppBar>
       <p></p>
       <br></br>
-      
-      <TextField 
-       style={{marginRight: 10}} 
-       label="Search repos" 
-       name="date" 
-       variant="outlined"
-       value={reponame} 
-       onChange={inputChanged}
+
+      <TextField
+        style={{ marginRight: 10 }}
+        label="Search repos"
+        name="date"
+        variant="outlined"
+        value={reponame}
+        onChange={inputChanged}
       />
       <p></p>
       <div><Button style={{ margin: 10 }} color="primary" variant="contained" size="small" onClick={searchRepo}>Search</Button></div>
