@@ -7,7 +7,7 @@ function Home() {
     <div>
       <br></br>
       <Typography variant="h6">
-        Browse apps from the navbar
+        Browse apps from the drop-down list in the menu
         <p></p>
         <br></br>
         <div className='carousel'>
